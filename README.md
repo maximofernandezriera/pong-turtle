@@ -15,6 +15,33 @@ de Python, pensada para clase.
 > (IDLE, Thonny, VS Code o terminal: `python3 pong.py`), no dentro de Colab.
 > El cuaderno es la guía de lectura; el juego se copia y se ejecuta en local.
 
+## Ejecutarlo en el navegador (sin instalar nada)
+
+### Opción A — GitHub Codespaces con escritorio web
+
+Este repo incluye `.devcontainer/devcontainer.json` con escritorio Linux
+accesible desde el navegador (noVNC):
+
+1. En GitHub: **Code → Codespaces → Create codespace on main**
+   (la primera vez tarda unos 3-5 min en construirse).
+2. Cuando abra VS Code web, ve a la pestaña **PORTS**, busca el puerto
+   **6080** ("Escritorio web") y abre la URL en otra pestaña.
+3. En esa pestaña verás un escritorio Linux: contraseña **`vscode`**.
+4. De vuelta en el terminal de VS Code, ejecuta:
+
+   ```bash
+   DISPLAY=:0 python3 pong.py
+   ```
+
+   La ventana del juego aparece **dentro del escritorio web** de la
+   pestaña del puerto 6080. El teclado funciona ahí directamente.
+
+### Opción B — Trinket (cero preparación)
+
+1. Abre https://trinket.io → **New Trinket → Python**.
+2. Pega el contenido de `pong.py` y pulsa **Run**: `turtle` corre en el
+   propio navegador, ideal para alumnos sin cuenta de GitHub.
+
 ## Controles
 
 - Jugador izquierdo: **W** (subir) / **S** (bajar)
