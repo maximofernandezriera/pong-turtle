@@ -43,10 +43,17 @@ que se ve en otra pestaña del navegador:
 
 1. En VS Code web, abre un terminal: menú **Terminal → New Terminal**
    (o `` Ctrl+` ``).
-2. Escribe exactamente:
+2. Averigua el display correcto (el escritorio puede no ser `:0`):
 
    ```bash
-   DISPLAY=:0 python3 pong.py
+   ls /tmp/.X11-unix/    # si sale X1 → el display es :1, si sale X0 → :0
+   echo $DISPLAY         # si devuelve algo, ya está configurado: omite el prefijo
+   ```
+
+3. Lanza el juego con el display que te haya salido (lo más habitual es `:1`):
+
+   ```bash
+   DISPLAY=:1 python3 pong.py     # o DISPLAY=:0 si apareció X0
    ```
 
 3. **Cambia a la pestaña del escritorio web** (la del paso 2): ahí aparece
@@ -73,6 +80,7 @@ Cuando acabes, para no gastar horas de codespace:
 |---|---|
 | El juego corre pero no se ve nada | Estás mirando VS Code: la ventana está en la **otra pestaña** (la del puerto 6080) |
 | `ModuleNotFoundError: tkinter` | El codespace está viejo: bórralo y créalo de nuevo (el devcontainer lo instala solo) |
+| `couldn't connect to display ":0"` | El display no es `:0`: mira `ls /tmp/.X11-unix/` y usa el número que salga (`DISPLAY=:1 python3 pong.py`) |
 | El teclado no responde | Haz clic dentro del escritorio web; el foco debe estar en esa ventana |
 | "No such file or directory: pong.py" | Estás en otra carpeta: `cd /workspaces/pong-turtle` |
 | Puerto 6080 no aparece | Espera 1 min; o ejecuta `/usr/local/desktop-lite/start-node-novnc.sh &` |
