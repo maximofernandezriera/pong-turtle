@@ -31,10 +31,11 @@ accesible desde el navegador (noVNC):
 2. Cuando abra VS Code web, ve a la pestaña **PORTS**, busca el puerto
    **6080** ("Escritorio web") y abre la URL en otra pestaña.
 3. En esa pestaña verás un escritorio Linux: contraseña **`vscode`**.
-4. De vuelta en el terminal de VS Code, ejecuta:
+4. De vuelta en el terminal de VS Code, mira qué display hay y lanza con ese:
 
    ```bash
-   DISPLAY=:0 python3 pong.py
+   ls /tmp/.X11-unix/               # X1 → display :1, X0 → display :0
+   DISPLAY=:1 python3 pong.py       # ajusta el número según lo anterior
    ```
 
    La ventana del juego aparece **dentro del escritorio web** de la
