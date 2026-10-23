@@ -17,6 +17,10 @@ de Python, pensada para clase.
 
 ## Ejecutarlo en el navegador (sin instalar nada)
 
+**Guía completa paso a paso:** [`GUIA-DE-USO.md`](GUIA-DE-USO.md)
+(incluye solución de problemas y el checklist de despliegue del docente).
+Resumen rápido:
+
 ### Opción A — GitHub Codespaces con escritorio web
 
 Este repo incluye `.devcontainer/devcontainer.json` con escritorio Linux
