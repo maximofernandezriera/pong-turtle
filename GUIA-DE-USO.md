@@ -43,18 +43,14 @@ que se ve en otra pestaña del navegador:
 
 1. En VS Code web, abre un terminal: menú **Terminal → New Terminal**
    (o `` Ctrl+` ``).
-2. Averigua el display correcto (el escritorio puede no ser `:0`):
+2. Lanza el juego apuntando al escritorio web (su display es `:1`):
 
    ```bash
-   ls /tmp/.X11-unix/    # si sale X1 → el display es :1, si sale X0 → :0
-   echo $DISPLAY         # si devuelve algo, ya está configurado: omite el prefijo
+   DISPLAY=:1 python3 pong.py
    ```
 
-3. Lanza el juego con el display que te haya salido (lo más habitual es `:1`):
-
-   ```bash
-   DISPLAY=:1 python3 pong.py     # o DISPLAY=:0 si apareció X0
-   ```
+   > Si algún día da `couldn't connect to display`: `ls /tmp/.X11-unix/`
+   > te dice cuál hay (`X1` → `:1`, `X0` → `:0`).
 
 3. **Cambia a la pestaña del escritorio web** (la del paso 2): ahí aparece
    la ventana negra del Pong.
